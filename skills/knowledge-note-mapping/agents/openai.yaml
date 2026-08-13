@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge Note Mapping"
+  short_description: "Map sources with claims and independent verification side by side."
+  default_prompt: "Process this source into linked knowledge notes, preserving each claim alongside an independent verification."
