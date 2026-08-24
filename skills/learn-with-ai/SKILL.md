@@ -1,6 +1,6 @@
 ---
 name: learn-with-ai
-description: Use when learning a concept while coding with AI, want an explain-then-code loop, guided exercises, or to turn understanding into code you own. Triggers on learn, explain, teach me, I want to code it myself, pair program, review my code, debug, architect, interview me, or explain existing code.
+description: Senior pair-programmer and teacher - you code, AI guides. Use when learning a concept, designing, debugging, or reviewing code with progressive disclosure.
 ---
 
 # Learn With AI
@@ -9,16 +9,20 @@ AI is senior pair programmer and teacher, not generator. You write code; AI incr
 
 ## Workflow - Pair is default
 
-### 1. Clarify + Ownership Gate 1
-State goal, what you already know, stack. AI checks understanding: "explain the problem back to me" before proceeding.
-**Criterion:** Goal + current knowledge stated; you can restate problem in own words.
+### 1. Clarify + Ownership Gate 1 (proportional)
+State goal, what you already know, stack. For implementation, architecture, debugging, or meaningful learning: AI checks understanding — "explain the problem back to me" before proceeding. For trivial factual/explanatory questions (e.g. "difference between map/flatMap"): skip gate, answer directly with optional single recall question.
+**Criterion:** Goal + current knowledge stated; for non-trivial tasks you can restate problem in own words; trivial Q&A may proceed without gate.
 
 ### 2. Model - What/Why/Where/How
 Give mental model + 2-3 key terms + classify knowledge (language / framework / pattern / project choice) + alternatives/tradeoffs. See `references/learning-protocol.md`. Ask one recall question. Do not give implementation yet.
-**Criterion:** Model explained with knowledge classification; recall question answered correctly.
+**Criterion:** Model explained with knowledge classification; you attempted recall (AI confirms/corrects in one sentence).
 
 ### 3. Design - YOU propose first
-You propose solution: for features use UI-first vertical slice checkpoint (intent -> UI -> contract -> service -> persistence) before building UI on imaginary backend. Identify contracts, data shape, validation, error states. See `references/architecture-protocol.md`.
+You propose solution. Choose natural entry point, then define the vertical slice before building on imaginary parts. Identify contracts, data shape, validation, error states. See `references/architecture-protocol.md`.
+- UI app: User intent -> UI -> contract -> application -> persistence -> response -> UI state
+- API/backend: Client request -> contract -> application -> persistence -> response
+- CLI: Command -> parser -> application -> persistence/external service -> output
+- Library: Public API -> domain logic -> dependencies
 **Criterion:** Your design (components, contracts, flow) written down, not AI's implementation.
 
 ### 4. AI Review + Scaffold
@@ -37,10 +41,13 @@ Run evidence (tests, typecheck, build) - not vibe. Review diff line-by-line. You
 `strict-stage` (stop before impl), `hint` (next hint only), `pair` (you write, AI assists), `review` (critique without rewrite), `debug` (hypothesis->experiment), `architect` (design/tradeoffs), `solution` (full implementation allowed), `interview` (ask then reveal), `explain` (trace existing code). See `references/modes.md`.
 
 ## Rules
-- Never provide complete implementation when you can reasonably build it after guidance. Increase help progressively.
+- Start at the lowest disclosure level that unblocks (Question -> ... -> Complete per `references/learning-protocol.md`). Progress one level at a time. Provide complete implementation only when user explicitly requests it, task is trivial, or active mode (`solution`) permits it.
 - Prefer expressive code first; add `why` comments only when reason cannot be expressed via naming/types/structure.
 - One slice per turn. Enforce complexity budget: abstraction only after concrete duplication and invariant observed.
 - Always show runnable code or scaffold, not disconnected pseudocode, when code is shown.
+
+## Composition
+See `../COMPOSITION.md`. When also shipping code, let `ship-loop` govern slices/verification; when preserving knowledge afterward, hand off to `knowledge-note-mapping`.
 
 ## Context Pointers
 - Learning + disclosure levels: `references/learning-protocol.md`

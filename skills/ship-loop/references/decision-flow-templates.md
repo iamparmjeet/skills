@@ -1,6 +1,8 @@
 # Decision + Flow Templates
 
 ## Decisions.md entry
+Canonical template is `../../_shared/decision-template.md`. Do not diverge:
+
 ```
 ## YYYY-MM-DD - [slice/feature] 
 Decision: [what chosen]

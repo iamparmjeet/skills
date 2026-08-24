@@ -1,6 +1,6 @@
 ---
 name: knowledge-note-mapping
-description: Process source or Inbox notes into an evidence-aware, interconnected knowledge system. Use when processing a clipping, video, article, book note, or research note; preserving a creator's claims alongside independent verification; extracting reusable atomic notes; creating or refining title/MOC notes; designing cross-links between concepts; or separating facts, interpretations, sources, and uncertain claims in an Obsidian or LifeOS-style vault.
+description: Turn sources into durable linked knowledge. Use when processing clippings, articles, or notes into atomic claims with provenance and verification for an Obsidian vault.
 ---
 
 # Knowledge Note Mapping
@@ -29,7 +29,7 @@ When several reusable notes belong to a larger subject, create a title/MOC note.
 
 ## Write and Link
 
-1. Give notes descriptive, claim-shaped titles; use a noun title only for a title/MOC note, person, organization, or primary subject.
+1. Give notes descriptive, claim-shaped titles; vault naming/metadata conventions override generic naming when they conflict (see Guardrails). Use noun title only for title/MOC, person, organization, or primary subject.
 2. Put one core idea in each atomic note. Include qualifications that prevent it from becoming misleading.
 3. Link upward to the title/MOC note, sideways to concepts it clarifies or contrasts with, and backward to the source or reference evidence.
 4. Do not link merely because terms are similar. Each link should express a relationship such as *is a type of*, *is governed by*, *contrasts with*, *depends on*, or *is an application of*.
@@ -43,32 +43,15 @@ Source → atomic claim → title/MOC → broader title/MOC
 
 Example: a source mentioning the UN, WTO, and IMF can produce atomic notes for their distinct roles, title notes for `United Nations`, `International Trade Governance`, and `International Financial Institutions`, then link them under `International Institutions` and `World Order`.
 
+Templates: `references/note-templates.md`. Completion checklist: `references/completion-checklist.md`.
+
 ## Evidence Discipline
 
-For substantive or high-stakes claims, preserve the source's position and assess it in parallel. Do not silently replace the creator's claim with an unsupported summary.
-
-1. Record the claim faithfully and specifically, with a timestamp or section reference for audio/video when practical.
-2. State the independent verification beside it: supported, partly supported, unsupported, contested, or not yet verified.
-3. Link the verification to the strongest suitable authority: systematic reviews, clinical guidelines, primary research, official data, standards, RFCs, or official technical documentation as appropriate.
-4. State the reason for any disagreement, including population, dose, timeframe, outcome, study quality, or uncertainty.
-5. Promote only the qualified, independently supported conclusion into a reusable atomic note. Keep the creator's original framing and unresolved questions in the source note or a reference note.
-
-Use a compact comparison when it improves clarity:
+For substantive or high-stakes claims, preserve the source's position and assess it in parallel — see `references/evidence.md` for full discipline (supported/partly/unsupported/contested/not-yet-verified, authority hierarchy, limits). Keep one compact comparison per claim:
 
 ```text
-Source claim: …
-Independent verification: …
-Assessment: supported | partly supported | unsupported | contested | not yet verified
-Limits: …
+Source claim: … | Independent verification: … | Assessment: supported | partly | unsupported | contested | not yet verified | Limits: …
 ```
-
-- Treat a source's interpretation as an interpretation unless independently verified.
-- For political, historical, legal, medical, financial, or current claims, research authoritative sources before presenting a reusable claim as fact. For medical content, prefer systematic reviews and clinical guidelines; do not treat an MD or other credential as a substitute for the underlying evidence.
-- For technical claims, prefer the governing standard or specification (for example, an RFC), then official implementation documentation and reproducible tests where behavior is implementation-specific.
-- Keep background/orientation sources distinct from evidence used for substantive claims.
-- Separate domestic causes, foreign involvement, and foreign orchestration. A relationship, influence, or institutional membership is not proof of control.
-- Replace vague labels with testable propositions: identify the actor, action, channel, time, and evidenced outcome.
-- Preserve uncertainty explicitly; do not turn a broad phrase, conspiracy claim, or rhetorical slogan into a conclusion without evidence.
 
 ## Validate and Hand Off
 
@@ -76,6 +59,9 @@ Limits: …
 2. Confirm every newly created atomic note is independently useful and each title/MOC note has a real scope.
 3. Inspect the final diff and distinguish structural validation from factual or semantic review.
 4. Report the created map, the sources used, and any evidence limits.
+
+## Composition
+See `../COMPOSITION.md`. This skill owns notes/provenance/evidence; do not duplicate Decisions.md/handover owned by `ship-loop`/`learn-with-ai` — link instead.
 
 ## Guardrails
 

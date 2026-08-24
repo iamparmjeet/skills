@@ -11,12 +11,14 @@ Limits: [when not applicable]
 ```
 
 ## Decisions.md entry
+Canonical is `../../_shared/decision-template.md`:
+
 ```
 ## YYYY-MM-DD - [slice]
 Decision: X
 Why: Y
 Alternatives: Z
-Tradeoffs: T
+Tradeoff: T
 Model: [model/version]
 ```
 
