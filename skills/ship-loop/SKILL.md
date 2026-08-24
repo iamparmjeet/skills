@@ -10,8 +10,8 @@ Govern AI-assisted execution so every change is scoped, traceable, and reversibl
 ## Workflow
 
 ### 1. Map - load terrain before touching code
-Read in order: `Handover.md` (where we left off), `Architecture.md` (system map), `Flow.md` (execution trace), `Constraints.md` (boundaries). If any missing, create a 5-line stub and note the gap in Handover.
-**Criterion:** All four files located or stubbed; current flow path (entry -> modules -> exit) stated in one paragraph.
+Read in order: `Handover.md` (where we left off), `Architecture.md` (system map), `Flow.md` (execution trace), `Constraints.md` (boundaries). If any missing, create a 5-line stub and note the gap in Handover. Apply proportional docs: trivial slice (<=20 lines, low risk) needs only Handover + Decisions stub; high-risk slice needs all four.
+**Criterion:** Required docs for this risk level located or stubbed; current flow path (entry -> modules -> exit) stated in one paragraph.
 
 ### 2. Constrain - scope permission
 Confirm `Constraints.md` boundaries for this task: forbidden paths, required patterns, dependency rules. If vague, ask one clarifying question and record the answer in Constraints.md before proceeding.
@@ -26,12 +26,12 @@ Implement exactly one logical change. Add explicit comments for non-obvious flow
 **Criterion:** One slice committed; diff is readable without summary; comments explain flow, not restate code.
 
 ### 5. Verify - prove it works
-Run the concrete checklist from `Test checklists` (commands + expected outputs). Read every diff line-by-line. If AI claims success, verify with evidence; if verification fails, diagnose from output, not guess.
-**Criterion:** Checklist commands executed with pasted evidence; diff reviewed line-by-line; `Bug.md` or `Feature.md` trail updated.
+Run the concrete checklist from `Test checklists` (commands + expected outputs). Read every diff line-by-line - summaries can be wrong, diffs cannot. If AI claims success, verify with evidence; if verification fails, diagnose from output, not guess. Proportional: trivial slice = `typecheck + single test`; complex slice = full checklist + edge cases.
+**Criterion:** Risk-appropriate checklist commands executed with pasted evidence; diff reviewed line-by-line; `Bug.md` or `Feature.md` trail updated.
 
 ### 6. Hand over - 30 seconds now saves hours later
-Update `Handover.md` (done / in-progress / broken / avoid), append Decisions.md why, pin model/version that reasoned, and leave 5-line next-session note. Keep one trace file per bug/feature start-to-finish.
-**Criterion:** Handover.md + Decisions.md + Bug.md/Feature.md reflect current truth; next session can start cold from Handover.md alone.
+Update `Handover.md` (done / in-progress / broken / avoid), append Decisions.md why, pin model/version that reasoned, and leave 5-line next-session note. Keep one trace file per bug/feature start-to-finish. Require ownership gate: you must explain the change in your own words before accept.
+**Criterion:** Handover.md + Decisions.md + Bug.md/Feature.md reflect current truth; you can explain the change without reading docs; next session can start cold from Handover.md alone.
 
 ## Branches
 - **Bug:** Start from `Bug.md` with reproduction -> tried -> worked -> didn't -> verified.
@@ -49,5 +49,6 @@ Update `Handover.md` (done / in-progress / broken / avoid), append Decisions.md 
 - Decision + flow templates: `references/decision-flow-templates.md`
 
 ## Guardrails
-- If you cannot explain the code in your own words, do not accept it - docs support understanding, do not replace it.
+- Docs are proportional to risk: trivial change = Handover+Decisions only; risky/complex = full trace + Architecture/Flow + rollback plan. Do not create docs to satisfy a checklist.
+- If you cannot explain the code in your own words, do not accept it - docs support understanding, do not replace it. See ownership gate in Step 6.
 - If a constraint would be violated, stop and ask before touching code.

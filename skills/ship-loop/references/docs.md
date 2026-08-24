@@ -2,6 +2,8 @@
 
 Detailed definitions for the 9 governed documents. Inlined here via context pointer, not in SKILL.md.
 
+> **Proportional docs:** Do not require every file every slice. Trivial (<=20 lines, isolated, low risk): Handover + Decisions stub. Standard feature: add Flow + test checklist. High-risk / cross-module / auth / payments / migrations: full set including Architecture, Constraints, rollback, Bug/Feature trace. Choose the minimal set that makes the change reversible and reviewable.
+
 ## 1. Handover.md - continuity
 Living record, updated incrementally each turn, read first every session. Contains: done, in-progress, broken, avoid. Not a dump - current truth only.
 Location: `docs/handover.md` or `Handover.md` at repo root / `.agent/handover.md`. Create stub if missing.
