@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ship Loop"
+  short_description: "Governed AI-assisted workflow with handovers, decisions, flow traces, and verifiable checks."
+  default_prompt: "Ship this change using governed loop: map terrain, constrain scope, plan with rollback, slice one change, verify with evidence, hand over."
