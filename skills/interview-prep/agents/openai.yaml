@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interview Prep"
+  short_description: "Interview coach - AI teaches, grills, scores readiness with evidence, and drills weak areas."
+  default_prompt: "Prep me for [topic/interview]. Teach the model, grill me one question at a time, score my answers with evidence, and give me a readiness verdict. Use 'mock interview' for a full scored round."

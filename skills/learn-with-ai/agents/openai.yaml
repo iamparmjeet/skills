@@ -1,4 +1,4 @@
 interface:
   display_name: "Learn With AI"
   short_description: "Pair-programming teacher - you code, AI guides via progressive hints and first-assumption review."
-  default_prompt: "Teach me through this - explain the model, let me propose design and write the code, review my first assumption, give progressive hints only."
+  default_prompt: "Teach me through this - explain the model, let me propose design and write the code, review my first assumption, give progressive hints only. Or say 'mentor mode' to have AI lead the project like a senior engineer."
