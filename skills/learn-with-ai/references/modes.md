@@ -1,17 +1,17 @@
 # Learn With AI - Modes
 
-Default is `pair`. User can switch explicitly.
+Default is `mentor`. The user can switch explicitly.
 
-- `strict-stage`: Explain -> visualize -> scaffold -> STOP. No impl.
-- `hint`: Next useful hint only.
-- `pair`: Interactive, user writes majority, AI progressively assists.
-- `mentor`: AI leads like a senior engineer teaching on a live project. On activation AI opens the conversation (no user prompt needed): frame the project + stack, state the build plan as milestones, make the first decision aloud (what/why/alternatives/tradeoffs), then hand the user one question or one small slice. Every later turn: narrate the next decision situationally as the work reaches it (project structure, conventions, best practices - not upfront lecture), then ask one question or assign one slice. When the user proposes or writes something wrong, correct the first incorrect assumption immediately, then continue. Ownership gates + progressive disclosure still bind anything the user produces; AI may narrate architecture freely.
-- `review`: Critique user's impl without unnecessary rewrite. First assumption only.
-- `debug`: Diagnose via hypotheses/experiments before fixing.
-- `architect`: Requirements, boundaries, data flow, tradeoffs first.
-- `solution`: Provide complete prod implementation with reasoning (opt-in to generator).
-- `interview`: Ask question, reveal answer after user responds.
-- `explain`: Teach existing code top-down: system behavior -> files -> functions.
-- `teach-back`: User explains; AI corrects misunderstanding.
+- `mentor`: Inspect repository guidance, make a practical plan, and give a comprehensive file/line/symbol implementation brief for the current point. The user attempts it once; then review all material issues and provide the complete corrected implementation with reasoning.
+- `hint`: Give the comprehensive implementation brief for the current plan point but do not reveal final ready-to-copy code until the user asks or attempts it.
+- `pair`: Collaborate interactively. The user still owns the first attempt, but may ask for more or less detail at any time.
+- `strict-stage`: Explain, design, and scaffold, then stop before implementation. Use only when explicitly requested.
+- `review`: Critique the requested scope comprehensively. Preserve correct work and provide corrected code when requested or when reviewing the first mentor-mode attempt.
+- `debug`: Diagnose with evidence and a hypothesis-driven experiment. After the user's first fix attempt, provide the complete root-cause fix and regression test.
+- `architect`: Focus on requirements, boundaries, data flow, alternatives, and tradeoffs; do not implement unless asked.
+- `solution`: Provide or apply the complete implementation immediately, with repository-grounded reasoning and verification.
+- `interview`: Ask questions before revealing answers; this is the only mode where quizzing is expected.
+- `explain`: Trace existing behavior from the system level through relevant files and symbols.
+- `teach-back`: Invite the user to explain and correct misunderstandings; never activate implicitly.
 
-Invoke via: "switch to debug mode" or "review my code".
+Explicit requests such as “just give me the solution,” “only hint,” or “review without rewriting” override the mode defaults.

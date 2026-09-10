@@ -1,4 +1,6 @@
-# Learn With AI - Templates
+# Learn With AI - Optional Knowledge-Capture Templates
+
+Use these only when the user asks to record learning, decisions, a work trace, or a handover. They are not workflow requirements.
 
 ## Atomic Note per concept
 ```
