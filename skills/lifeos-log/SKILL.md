@@ -30,7 +30,7 @@ Turn a casual message into structured entries in one LifeOS daily note. One day 
 ## Rules by domain
 
 ### Gym
-- LifeOS keeps a **session summary**; the user's gym workout app owns sets, reps, loads and PRs. Do not copy set-by-set tables — if the user pastes them, summarise to main lifts plus a notable top set or PR.
+- LifeOS keeps a **session summary**; Gym Log (Gym Workout Tracker by Leap Fitness) owns sets, reps, loads and PRs. Do not copy set-by-set tables — if the user pastes them, summarise to main lifts plus a notable top set or PR.
 - Set `gym: true`, `gym_split` (`push`, `pull`, `legs`, `upper`, `lower`, `full`, `cardio`, `rest`), `gym_minutes`.
 - Record energy (1–5) and any pain or injury verbatim. Pain that is sharp, persistent, or in the chest → note it and suggest checking with a clinician; don't diagnose.
 - Evening incline walks go in the Gym section as cardio (duration, incline, speed) even on strength days.
