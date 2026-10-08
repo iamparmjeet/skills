@@ -35,6 +35,8 @@ P = protein, C = carbohydrate, F = fat, Fib = fiber (all grams).
 | Raisins | 10 g | 0.3 | 8 | 0 | 0.4 | 30 |
 | Besan namkeen | 10 g | 2 | 4 | 3.5 | 1 | 55 |
 | Small biscuit (Marie/glucose type) | 1 (~6 g) | 0.4 | 4.5 | 0.6 | 0 | 25 |
+| Samosa, small | 1 (~50 g) | 2.5 | 18 | 10 | 1.3 | 160 |
+| Samosa, medium/street | 1 (~90 g) | 4 | 30 | 17 | 2 | 260 |
 | Peda / barfi | 1 (~30 g) | 2 | 18 | 5 | 0 | 130 |
 | Poha | 1 plate (~200 g cooked) | 5 | 45 | 8 | 2 | 270 |
 | Upma | 1 plate | 5 | 35 | 9 | 2 | 250 |

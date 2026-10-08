@@ -45,6 +45,7 @@ Placed after `## Quick evidence` and before `## Local capture`.
 - **Snacks:** moong sprouts from 90 g dry, 20 g chana, cucumber; pea protein 1 scoop (~50 P · 70 C · 4 F · ~520 kcal)
 - **Dinner:**
 - **Day estimate:** ~67 g protein · 158 g carbs · 12 g fat · 30 g fiber · ~1,030 kcal (targets 140–160 g protein · ~2,200–2,400 kcal)
+- **Hunger / cravings:** hungry by 17:00
 - **Micro check:** B12 low (only chaach) · iron ok (moong, dal, chana) · calcium some · vitamin D none from food · omega-3 low
 
 ### Supplements and medication

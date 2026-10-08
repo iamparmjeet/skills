@@ -43,6 +43,7 @@ Turn a casual message into structured entries in one LifeOS daily note. One day 
 - Context: vegetarian; no meat/fish/eggs at home; no onion/garlic at home.
 - Estimate protein, carbs, fat, fiber and kcal per item with [references/food-estimates.md](references/food-estimates.md), then write per-meal totals. Prefix with `~`, round grams to 1 and kcal to 10. Add a qualitative `Micro check` line (B12, iron, calcium, vitamin D, omega-3) — never milligram numbers. Ask for quantity only when the guess would swing the day by >15 g protein or >200 kcal (e.g. "how much soya — 50 g or 100 g dry?"); otherwise assume a typical home portion and say so.
 - Protein powder and pre-workout count as food for totals *and* are listed under Supplements.
+- Record hunger and cravings in the `Hunger / cravings` line in the user's words; across days they show which meals under-fill during the cut.
 - `nutrition_adherence`: `yes` when the day roughly matches Current Plan, `partial`, or `no` — set it only once dinner is logged or the user says the day is done.
 
 ### Supplements and medication
