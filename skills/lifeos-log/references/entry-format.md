@@ -6,6 +6,7 @@ These sections and keys must match the vault's daily template exactly, because t
 
 ```yaml
 sleep_hours: 6.5          # decimal hours, never 630
+weight_kg: 98.6           # morning weigh-in
 sleep_time: "00:40"
 wake_time: "06:40"
 gym: true

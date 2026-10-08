@@ -21,9 +21,9 @@ Turn a casual message into structured entries in one LifeOS daily note. One day 
 2. **Open the daily note.**
    - Missing → create it from the template: resolve every Templater expression by hand (`date`, ISO `week` like `2026-W41`, `month`, `quarter`, `year`, `created`, `updated`), leave prompted fields (`sleep_time`, `wake_time`) empty unless the user gave them, and keep the rest verbatim.
    - Exists but lacks `## Health log` / `## Learning log` (older notes) → insert both sections exactly as in the template, immediately before `## Local capture`. Add missing YAML keys with empty values. Do not rewrite anything else.
-3. **Classify every fragment** of the message into gym, food (and which meal), supplements/medication, learning, sleep, or steps. One message often covers several.
+3. **Classify every fragment** of the message into gym, food (and which meal), supplements/medication, learning, weight, sleep, or steps. One message often covers several.
 4. **Write entries** using the formats in [references/entry-format.md](references/entry-format.md). Append to the right slot; never delete or overwrite what is already logged. If the user corrects an earlier entry, edit that entry in place.
-5. **Recompute YAML totals** from the whole note, not just the new message: `protein_g`, `carbs_g`, `fat_g`, `fiber_g`, `calories_kcal`, `learning_minutes`, `supplements`, plus `gym`, `gym_split`, `gym_minutes`, `steps`, sleep fields when given. Set `updated:` to today.
+5. **Recompute YAML totals** from the whole note, not just the new message: `protein_g`, `carbs_g`, `fat_g`, `fiber_g`, `calories_kcal`, `learning_minutes`, `supplements`, plus `gym`, `gym_split`, `gym_minutes`, `weight_kg`, `steps`, sleep fields when given. Set `updated:` to today.
 6. **Validate:** YAML still parses — `ruby -ryaml -e 'YAML.safe_load(File.read(ARGV[0]).split(/^---$/)[1], permitted_classes: [Date])' "<note>"` (system Python has no PyYAML) — inline fields keep the `(key:: value)` shape, wikilinks point at existing notes.
 7. **Reply briefly:** what was filed where, running totals vs targets (protein 140–160 g, calories ~2,200–2,400 kcal per Current Plan), and which slots are still empty today (e.g. "dinner, learning not logged yet"). No lecture.
 
@@ -34,6 +34,9 @@ Turn a casual message into structured entries in one LifeOS daily note. One day 
 - Set `gym: true`, `gym_split` (`push`, `pull`, `legs`, `upper`, `lower`, `full`, `cardio`, `rest`), `gym_minutes`.
 - Record energy (1–5) and any pain or injury verbatim. Pain that is sharp, persistent, or in the chest → note it and suggest checking with a clinician; don't diagnose.
 - Evening incline walks go in the Gym section as cardio (duration, incline, speed) even on strength days.
+
+### Weight
+- `weight_kg` = that morning's weigh-in (after toilet, same conditions), one decimal. Comment only on the 7-day average shown in `Health.md`, never a single day.
 
 ### Food
 - Slots: Breakfast, Lunch, Snacks, Dinner. Pre/post-workout food goes in Snacks unless the user names a meal. Infer the slot from words first, then from time of day.
