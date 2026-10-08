@@ -1,45 +1,26 @@
 # Entry Format
 
-These sections and keys must match the vault's daily template exactly, because the dashboards in `Health.md`, `Daily Food Log.md` and `Learning.md` query them.
+Plain entries only. No dashboard queries depend on this format, so the AI reads it back in whatever form the user wrote it.
 
-## YAML keys (frontmatter)
+## Frontmatter
 
-```yaml
-sleep_hours: 6.5          # decimal hours, never 630
-weight_kg: 98.6           # morning weigh-in
-sleep_time: "00:40"
-wake_time: "06:40"
-gym: true
-gym_split: push           # push | pull | legs | upper | lower | full | cardio | rest
-gym_minutes: 75
-steps: 7000
-protein_g: 142            # whole-day estimate, recomputed from Food
-calories_kcal: 2310       # whole-day estimate, recomputed from Food
-carbs_g: 260
-fat_g: 60
-fiber_g: 32
-supplements:              # names taken today, lowercase
-  - creatine
-  - pea protein
-learning_minutes: 85      # sum of every learn_min today
-nutrition_adherence: "yes"  # "yes" | "partial" | "no" (quoted) — set when the day is done
-```
-
-Leave a key empty rather than guessing. Existing keys keep their position.
+Do not add keys. Only the template's existing `gym`, `steps`, `sleep_hours`, `sleep_time`, `wake_time` and `nutrition_adherence` may be set, and `sleep_hours` is decimal hours, never `630`. `nutrition_adherence` takes `yes`, `partial` or `no`.
 
 ## Body sections
 
-Placed after `## Quick evidence` and before `## Local capture`.
+One `## Log` heading placed before `## Local capture`. Everything is plain text.
 
 ```markdown
-## Health log
+## Log
 
-### Gym
+**Weight:** 98.6 kg
+
+**Gym**
 - Push · 75 min · energy 4/5 — bench press (top 60 kg × 6), incline DB press, OHP, lateral raises, triceps pushdown
 - Cardio · 30 min incline walk, 8%, 4.5 km/h
 - Pain / recovery: mild left shoulder tightness on OHP
 
-### Food
+**Food**
 - **Breakfast:** 1 banana (~1 P · 27 C · 0 F · ~110 kcal)
 - **Lunch:** 2 roti, 1 katori dal, chaach (~16 P · 61 C · 7 F · ~400 kcal)
 - **Snacks:** moong sprouts from 90 g dry, 20 g chana, cucumber; pea protein 1 scoop (~50 P · 70 C · 4 F · ~520 kcal)
@@ -48,14 +29,13 @@ Placed after `## Quick evidence` and before `## Local capture`.
 - **Hunger / cravings:** hungry by 17:00
 - **Micro check:** B12 low (only chaach) · iron ok (moong, dal, chana) · calcium some · vitamin D none from food · omega-3 low
 
-### Supplements and medication
+**Supplements**
 - 07:40 — 1.M.R Vortex, 1 scoop (pre-workout)
 - 09:45 — creatine 3 g
 - Becozyme-C-Forte — dose not stated
 
-## Learning log
-- (learn:: Two-pointer on sorted arrays) (learn_min:: 45) (goal:: [[Secure a Paid Full-Stack React Role]]) (takeaway:: Move the pointer at the smaller side; each step discards one candidate, so linear time) (next:: Striver 3Sum) (card:: Why is two-pointer pair-sum linear on a sorted array?)
-```
+**Learning**
+- Two-pointer on sorted arrays, 45 min, [[Secure a Paid Full-Stack React Role]]. Takeaway: move the pointer at the smaller side; each step discards one candidate, so linear time. Next: Striver 3Sum. Card idea: why is two-pointer pair-sum linear on a sorted array?
 
 ### Conventions
 
@@ -63,5 +43,6 @@ Placed after `## Quick evidence` and before `## Local capture`.
 - `Day estimate` adds fiber. Carbs and fat have no plan target, so don't show one. `Micro check` follows the qualitative flags in food-estimates.md.
 - Empty slot keeps its label with nothing after the colon.
 - `Day estimate` line is rewritten on every update.
-- Learning: one bullet per session; omit `(card:: …)` when there is no recall-worthy fact. Field values must not contain `)`; rephrase instead.
+- Learning: one bullet per session; omit the card idea when there is no recall-worthy fact.
+- The user's own hand-written entries (plain lines or task-style) take precedence; summarise them rather than rewriting them.
 - Times in 24 h `HH:MM` when the user gave a time; otherwise omit.
