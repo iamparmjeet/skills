@@ -14,6 +14,9 @@ gym_minutes: 75
 steps: 7000
 protein_g: 142            # whole-day estimate, recomputed from Food
 calories_kcal: 2310       # whole-day estimate, recomputed from Food
+carbs_g: 260
+fat_g: 60
+fiber_g: 32
 supplements:              # names taken today, lowercase
   - creatine
   - pea protein
@@ -36,11 +39,12 @@ Placed after `## Quick evidence` and before `## Local capture`.
 - Pain / recovery: mild left shoulder tightness on OHP
 
 ### Food
-- **Breakfast:** 1 banana (~1 g, ~110 kcal)
-- **Lunch:** 2 roti, 1 katori dal, chaach (~20 g, ~450 kcal)
-- **Snacks:** moong sprouts from 90 g dry + 20 g chana + cucumber (~26 g, ~390 kcal); pea protein 1 scoop (~24 g, ~120 kcal)
+- **Breakfast:** 1 banana (~1 P · 27 C · 0 F · ~110 kcal)
+- **Lunch:** 2 roti, 1 katori dal, chaach (~16 P · 61 C · 7 F · ~400 kcal)
+- **Snacks:** moong sprouts from 90 g dry, 20 g chana, cucumber; pea protein 1 scoop (~50 P · 70 C · 4 F · ~520 kcal)
 - **Dinner:**
-- **Day estimate:** ~71 g protein · ~1,070 kcal (targets 140–160 g · ~2,200–2,400 kcal)
+- **Day estimate:** ~67 g protein · 158 g carbs · 12 g fat · 30 g fiber · ~1,030 kcal (targets 140–160 g protein · ~2,200–2,400 kcal)
+- **Micro check:** B12 low (only chaach) · iron ok (moong, dal, chana) · calcium some · vitamin D none from food · omega-3 low
 
 ### Supplements and medication
 - 07:40 — 1.M.R Vortex, 1 scoop (pre-workout)
@@ -53,7 +57,8 @@ Placed after `## Quick evidence` and before `## Local capture`.
 
 ### Conventions
 
-- Food item: `description (~P g, ~K kcal)`; several items in one slot separated by `; `. Group a combined plate into one parenthesis.
+- Meal line: items separated by `, ` or `; `, then one parenthesis with the meal's totals `(~P P · C C · F F · ~K kcal)`. Per-item numbers are worked out from the table but not written.
+- `Day estimate` adds fiber. Carbs and fat have no plan target, so don't show one. `Micro check` follows the qualitative flags in food-estimates.md.
 - Empty slot keeps its label with nothing after the colon.
 - `Day estimate` line is rewritten on every update.
 - Learning: one bullet per session; omit `(card:: …)` when there is no recall-worthy fact. Field values must not contain `)`; rephrase instead.

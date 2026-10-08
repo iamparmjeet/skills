@@ -1,6 +1,6 @@
 ---
 name: lifeos-log
-description: Log the user's day into their LifeOS daily note from casual chat — gym session summary, food by meal (breakfast, lunch, snacks, dinner) with protein/calorie estimates, supplements and medication taken, and learning (topic, minutes, linked goal, takeaway, next step). Use when the user says "log", "/lifeos-log", "I ate…", "had breakfast…", "gym done", "took creatine", "studied X for 40 min", or asks what is still missing from today's log.
+description: Log the user's day into their LifeOS daily note from casual chat — gym session summary, food by meal (breakfast, lunch, snacks, dinner) with macro estimates and a vegetarian micronutrient check, supplements and medication taken, and learning (topic, minutes, linked goal, takeaway, next step). Use when the user says "log", "/lifeos-log", "I ate…", "had breakfast…", "gym done", "took creatine", "studied X for 40 min", or asks what is still missing from today's log.
 ---
 
 # LifeOS Daily Log
@@ -23,7 +23,7 @@ Turn a casual message into structured entries in one LifeOS daily note. One day 
    - Exists but lacks `## Health log` / `## Learning log` (older notes) → insert both sections exactly as in the template, immediately before `## Local capture`. Add missing YAML keys with empty values. Do not rewrite anything else.
 3. **Classify every fragment** of the message into gym, food (and which meal), supplements/medication, learning, sleep, or steps. One message often covers several.
 4. **Write entries** using the formats in [references/entry-format.md](references/entry-format.md). Append to the right slot; never delete or overwrite what is already logged. If the user corrects an earlier entry, edit that entry in place.
-5. **Recompute YAML totals** from the whole note, not just the new message: `protein_g`, `calories_kcal`, `learning_minutes`, `supplements`, plus `gym`, `gym_split`, `gym_minutes`, `steps`, sleep fields when given. Set `updated:` to today.
+5. **Recompute YAML totals** from the whole note, not just the new message: `protein_g`, `carbs_g`, `fat_g`, `fiber_g`, `calories_kcal`, `learning_minutes`, `supplements`, plus `gym`, `gym_split`, `gym_minutes`, `steps`, sleep fields when given. Set `updated:` to today.
 6. **Validate:** YAML still parses — `ruby -ryaml -e 'YAML.safe_load(File.read(ARGV[0]).split(/^---$/)[1], permitted_classes: [Date])' "<note>"` (system Python has no PyYAML) — inline fields keep the `(key:: value)` shape, wikilinks point at existing notes.
 7. **Reply briefly:** what was filed where, running totals vs targets (protein 140–160 g, calories ~2,200–2,400 kcal per Current Plan), and which slots are still empty today (e.g. "dinner, learning not logged yet"). No lecture.
 
@@ -38,7 +38,7 @@ Turn a casual message into structured entries in one LifeOS daily note. One day 
 ### Food
 - Slots: Breakfast, Lunch, Snacks, Dinner. Pre/post-workout food goes in Snacks unless the user names a meal. Infer the slot from words first, then from time of day.
 - Context: vegetarian; no meat/fish/eggs at home; no onion/garlic at home.
-- Estimate protein and kcal per item with [references/food-estimates.md](references/food-estimates.md). Prefix with `~`, round protein to 1 g and kcal to 10. Ask for quantity only when the guess would swing the day by >15 g protein or >200 kcal (e.g. "how much soya — 50 g or 100 g dry?"); otherwise assume a typical home portion and say so.
+- Estimate protein, carbs, fat, fiber and kcal per item with [references/food-estimates.md](references/food-estimates.md), then write per-meal totals. Prefix with `~`, round grams to 1 and kcal to 10. Add a qualitative `Micro check` line (B12, iron, calcium, vitamin D, omega-3) — never milligram numbers. Ask for quantity only when the guess would swing the day by >15 g protein or >200 kcal (e.g. "how much soya — 50 g or 100 g dry?"); otherwise assume a typical home portion and say so.
 - Protein powder and pre-workout count as food for totals *and* are listed under Supplements.
 - `nutrition_adherence`: `yes` when the day roughly matches Current Plan, `partial`, or `no` — set it only once dinner is logged or the user says the day is done.
 
