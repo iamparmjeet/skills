@@ -12,5 +12,10 @@ Copy into PR/diff note or validate before handoff.
 - [ ] Strongest authority linked (systematic review/guideline/RFC/official docs/primary research)
 - [ ] Uncertainty/limits preserved; no vague label turned into conclusion without actor/action/channel/time/outcome
 - [ ] No duplicate notes created
+- [ ] Combined notes split into micro notes where subjects differ; overview links them without duplication
+- [ ] Identity and application layers separated and linked with a real relationship (is a form of / depends on / is an application of)
+- [ ] Registries list every member; identifiers live in frontmatter, not filenames
+- [ ] Balanced notes carry both points and counterpoints, each with evidence
+- [ ] Source-independent titles cite the originating source rather than narrowing to it
 - [ ] YAML/frontmatter, filenames, and source status/movement correct
 - [ ] Diff inspected; source note updated with extracted links and processed status

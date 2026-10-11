@@ -20,8 +20,11 @@ Classify each useful item before creating it:
 
 - **Source note:** preserves original material, author, URL, and provenance.
 - **Atomic note:** makes one reusable, bounded claim or definition that can stand outside this source.
+- **Micro note:** a short atomic note scoped to one subject only, used when a combined note would blur distinct subjects.
 - **Title/MOC note:** organizes a subject that has several concepts, subtopics, or institutions.
+- **Registry/index MOC:** a MOC that also carries a stable data table of entities, letting them be registered before they are written up.
 - **Reference note:** records evidence, definitions, or comparison details too large for an atomic note.
+- **Hub / item map:** a reference note that indexes every item a list-heavy source names, with claim, mechanism, and verdict per item.
 
 Create an atomic note only when the concept will be useful outside the current source. Keep one-off context in the current note.
 
@@ -44,6 +47,41 @@ Source → atomic claim → title/MOC → broader title/MOC
 Example: a source mentioning the UN, WTO, and IMF can produce atomic notes for their distinct roles, title notes for `United Nations`, `International Trade Governance`, and `International Financial Institutions`, then link them under `International Institutions` and `World Order`.
 
 Templates: `references/note-templates.md`. Completion checklist: `references/completion-checklist.md`.
+
+## Layer Identity from Application
+
+Some subjects have two genuinely different layers that should not share one note:
+
+- **Identity layer** — what the thing *is*: an element, compound, standard, specification. Use a noun title; keep chemistry, physics, or definition here.
+- **Application layer** — what it *does* in a domain: its effect, risk, or use. Use a claim-shaped title.
+
+Link with a real relationship, not similarity:
+
+```text
+Heme Iron            —is a chemical form of→  Iron
+Iron Bioavailability —depends on→             Iron (speciation)
+Phytate              —is a compound whose effect is→ Phytates … Reduce Mineral Absorption
+```
+
+The identity note stays stable (its facts rarely change) while effect notes absorb new evidence. Put the identity note in the science/reference branch and the effect note in the domain branch, cross-linked both ways.
+
+## Micro Notes and Overviews
+
+When one note would cover several subjects that differ in mechanism or verdict, split into **micro notes** — one short atomic note per subject — and keep the old combined note as a short **overview** that links them. Do not duplicate content between the overview and its micro notes.
+
+## Registries and Naming
+
+A registry MOC carries a stable data table for entities that exist before they are written up (for example, all 118 elements while only one has a note). Register every member and link the ones that have notes.
+
+Never encode identifiers in filenames: `1-H`, `H-1`, or `He-2` produce code-like wikilinks and break on renaming. Title by name (`Hydrogen`, `Iron`) and put the number, symbol, and category in frontmatter; order the registry table by the identifier.
+
+## Balanced Notes (Points and Counterpoints)
+
+For contested or dual-nature subjects, do not present a single verdict. State the case for concern and the case against in parallel, each with its evidence, and name the condition that decides between them (dose, population, or dietary context). This is where a reference note earns its place over an atomic one.
+
+## Source-Independent Titles
+
+When a note generalizes beyond the source that surfaced it, give it a general title and cite the originating source in a `Source` line. A compound note surfaced by a grocery video stays titled `Phytate`, with the source named in prose — the note is not narrowed to the source, and provenance is preserved.
 
 ## Evidence Discipline
 
